@@ -6,9 +6,10 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
 # Load dataset
-data = pd.read_csv("../data/heart.csv")
+data = pd.read_csv(
+    r"C:\Users\prakash\OneDrive\Documents\GitHub\Heart-disease-prediction-ML\data\heart.csv"
+)
 
-# Optional: see first 5 rows
 print(data.head())
 
 # Features & target
@@ -32,8 +33,11 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 print("Accuracy:", accuracy_score(y_test, y_pred))
 
-# Save model
-with open("../model/heart_model.pkl", "wb") as f:
+# Save model & scaler
+with open(
+    r"C:\Users\prakash\OneDrive\Documents\GitHub\Heart-disease-prediction-ML\model.pkl",
+    "wb"
+) as f:
     pickle.dump((model, scaler), f)
 
-print("Model saved successfully")
+print("Model saved successfully")
